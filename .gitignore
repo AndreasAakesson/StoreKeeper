@@ -45,8 +45,8 @@ Desktop.ini
 ######################
  
 .metadata
-.settings
-.classpath
+#.settings
+#.classpath
 
 # External tool builders
 .externalToolBuilders/
