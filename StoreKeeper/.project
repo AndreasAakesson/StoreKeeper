@@ -3,8 +3,8 @@
 	<name>StoreKeeper</name>
 	<comment></comment>
 	<projects>
-		<project>StoreKeeper-Persistence</project>
 		<project>StoreKeeper-EJB</project>
+		<project>StoreKeeper-Persistence</project>
 		<project>StoreKeeper-Web</project>
 	</projects>
 	<buildSpec>
