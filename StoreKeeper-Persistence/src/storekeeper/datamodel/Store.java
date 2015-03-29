@@ -17,7 +17,7 @@ public class Store implements java.io.Serializable {
 	private String address;
 	private String phone;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "store")
-	private Set<Order> orders;	
+	private Set<StoreOrder> orders;	
 	@ManyToMany(cascade = CascadeType.ALL, mappedBy = "stores")
 	private Set<User> users;
 	@OneToMany
@@ -51,19 +51,19 @@ public class Store implements java.io.Serializable {
 		return phone;
 	}
 
-	public void setOrders(Set<Order> iOrders){
+	public void setOrders(Set<StoreOrder> iOrders){
 		orders = iOrders;
 	}
 
-	public Set<Order> getOrders() { 
+	public Set<StoreOrder> getOrders() { 
 		return orders; 
 	}	
 
-	protected void addOrder(Order iOrder) {
+	protected void addOrder(StoreOrder iOrder) {
 		orders.add(iOrder);
 	}
 	
-	protected void removeOrder(Order iOrder) {
+	protected void removeOrder(StoreOrder iOrder) {
 		orders.remove(iOrder);
 	}
 	

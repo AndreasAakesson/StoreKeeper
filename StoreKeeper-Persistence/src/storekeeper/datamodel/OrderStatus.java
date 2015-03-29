@@ -15,7 +15,7 @@ public class OrderStatus implements java.io.Serializable {
 	private int id;	
 	private String name;	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "orderStatus")
-	private Set<Order> orders;
+	private Set<StoreOrder> orders;
 
 	public int getId(){
 		return id;
@@ -29,19 +29,19 @@ public class OrderStatus implements java.io.Serializable {
 		return name; 
 	}
 
-	public void setOrders(Set<Order> iOrders){
+	public void setOrders(Set<StoreOrder> iOrders){
 		orders = iOrders;
 	}
 
-	public Set<Order> getOrders() { 
+	public Set<StoreOrder> getOrders() { 
 		return orders; 
 	}	
 
-	protected void addOrder(Order iOrder) {
+	protected void addOrder(StoreOrder iOrder) {
 		orders.add(iOrder);
 	}
 	
-	protected void removeOrder(Order iOrder) {
+	protected void removeOrder(StoreOrder iOrder) {
 		orders.remove(iOrder);
 	}
 	

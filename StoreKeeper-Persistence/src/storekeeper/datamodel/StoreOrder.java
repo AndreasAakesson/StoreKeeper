@@ -6,7 +6,7 @@ import java.util.Set;
 import javax.persistence.*;
 
 @Entity
-public class Order implements java.io.Serializable {
+public class StoreOrder implements java.io.Serializable {
 
 	private static final long serialVersionUID = -4215756892193607702L;
 

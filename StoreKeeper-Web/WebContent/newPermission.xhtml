@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Creates a new Permission</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Name : " />
+			<h:inputText value="#{PermissionController.permission.name}" />
+			<h:outputLabel value="Description :" />
+			<h:inputText value="#{PermissionController.permission.description}" />
+		</h:panelGrid>
+		<h:commandButton value="Add New Permission"
+			action="#{PermissionController.addNewPermission}" />
+	</h:form>
+</h:body>
+</html>

@@ -17,8 +17,9 @@ public abstract class GenericEJB<T> {
 		entityClass = iEntityClass;
 	}
 	
-	public void add(T entity){
-		entityManager.persist(entity);
+	// Mulig vi må bruke entityManager.persist(entity) i stedet for, men det er en void metode.
+	public T add(T entity){
+		return entityManager.merge(entity);
 	}
 	
 	public void delete(T entity){
