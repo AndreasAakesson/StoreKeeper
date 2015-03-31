@@ -16,7 +16,6 @@ public class PermissionController {
 
 	@EJB
 	private PermissionEJB permissionEJB;
-	// Liker ikke at controlleren har direkte tilgang til datamodellen. Må vi ha et interface? 
 	private Permission permission = new Permission();
 	private List<Permission> permissionList = new ArrayList<>();
 

@@ -1,7 +1,8 @@
 package storekeeper.datamodel;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Set;
-
 import javax.persistence.*;
 
 @Entity
@@ -16,7 +17,7 @@ public class User implements java.io.Serializable {
 	private String first_name;
 	private String last_name;
 	private String email;
-	private String password;
+	private byte[] password;
 	@ManyToOne
 	private Role role;
 	@OneToMany
@@ -54,10 +55,15 @@ public class User implements java.io.Serializable {
 	}
 
 	public void setPassword(String iPassword){
-		password = iPassword;
+		try{
+			password = hash(iPassword);
+		}
+		catch (NoSuchAlgorithmException e){
+			e.printStackTrace();
+		}
 	}
 	
-	public String getPassword(){
+	public byte[] getPassword(){
 		return password;
 	}
 
@@ -98,4 +104,10 @@ public class User implements java.io.Serializable {
 		return stores;
 	}
 
+	private byte[] hash(String password) throws NoSuchAlgorithmException {
+	    MessageDigest sha256 = MessageDigest.getInstance("SHA-256");        
+	    byte[] passBytes = password.getBytes();
+	    byte[] passHash = sha256.digest(passBytes);
+	    return passHash;
+	}	
 }
