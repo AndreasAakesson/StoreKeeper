@@ -3,6 +3,7 @@
 	<name>StoreKeeper-Web</name>
 	<comment></comment>
 	<projects>
+		<project>StoreKeeper-EJB</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

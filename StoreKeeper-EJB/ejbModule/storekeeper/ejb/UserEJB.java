@@ -26,6 +26,25 @@ public class UserEJB extends GenericEJB<User> {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("email", email);
 		return super.findOneResult(query, parameters);
-	}	
+	}
+	
+	public User login(String email, String password)
+	{
+		User user = null;
+		byte[] hashed_password;
+		try {
+			hashed_password = User.hash(password);
+			
+			String query = "select u from User u where u.email = :email and u.password = :password";
+			Map<String, Object> parameters = new HashMap<String, Object>();
+			parameters.put("email", email);
+			parameters.put("email", hashed_password);
+			user = super.findOneResult(query, parameters);
+		}
+		catch(Exception e) {
+			// do nothing
+		}		
+		return user;
+	}
 	
 }
