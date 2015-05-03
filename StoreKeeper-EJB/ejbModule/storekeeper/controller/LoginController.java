@@ -38,9 +38,9 @@ public class LoginController {
 	public String login() {
 		User user = userEJB.login(email, password);
 		if(user != null)
-			return "index";
+			return "success";
 		
-		return "index";
+		return "success";
 	    /*FacesContext context = FacesContext.getCurrentInstance();
 	    HttpServletRequest request = (HttpServletRequest) 
 	        context.getExternalContext().getRequest();

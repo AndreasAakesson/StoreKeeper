@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+      	
+	<head>		
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"></link>
+	</head>
+	
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<h:form styleClass="form-horizontal">
+						<div class="form-group">
+						    <h:outputLabel for="first_name">
+						        First Name:
+						    </h:outputLabel>
+						    <h:inputText id="first_name" value="#{UserController.user.first_name}" 
+						                 required="true" styleClass="form-control" />
+					    </div>
+					    
+					    <div class="form-group">
+						    <h:outputLabel for="last_name">
+						        First Name:
+						    </h:outputLabel>
+						    <h:inputText id="last_name" value="#{UserController.user.last_name}" 
+						                 required="true" styleClass="form-control" />
+					    </div>
+					    
+					    <div class="form-group">
+						    <h:outputLabel for="email">
+						        Email:
+						    </h:outputLabel>
+						    <h:inputText id="email" value="#{UserController.user.email}" 
+						                 required="true" styleClass="form-control" />
+					    </div>
+					    
+					    
+					    <div class="form-group">
+						    <h:outputLabel for="passwordInput">
+						        Password:
+						    </h:outputLabel>
+						    <h:inputSecret id="password" value="#{UserController.reg_password}" 
+						                   required="true" styleClass="form-control" />
+					  	</div>
+					  	
+					  	<div class="form-group">
+						    <h:outputLabel for="passwordInput">
+						        Confirm Password:
+						    </h:outputLabel>
+						    <h:inputSecret id="confirm_password" value="#{UserController.confirmation_password}" 
+						                   required="true" styleClass="form-control" />
+					  	</div>
+					    <h:commandButton value="Register User" 
+					                     action="#{UserController.register}" styleClass="btn btn-primary btn-lg btn-block" />
+					</h:form>
+				</div>
+			</div>
+			
+		</div>
+	</body>
+			
+</html>

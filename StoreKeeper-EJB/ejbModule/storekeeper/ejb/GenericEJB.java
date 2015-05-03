@@ -5,11 +5,13 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
 
 public abstract class GenericEJB<T> {
 	
+	@PersistenceContext
 	private EntityManager entityManager;
 	private Class<T> entityClass;
 	
@@ -17,7 +19,7 @@ public abstract class GenericEJB<T> {
 		entityClass = iEntityClass;
 	}
 	
-	// Mulig vi må bruke entityManager.persist(entity) i stedet for, men det er en void metode.
+	// Mulig vi mï¿½ bruke entityManager.persist(entity) i stedet for, men det er en void metode.
 	public T add(T entity){
 		return entityManager.merge(entity);
 	}

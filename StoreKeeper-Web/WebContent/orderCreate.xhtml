@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+      	
+	<head>		
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"></link>
+	</head>
+	
+	<body>
+		<div class="container">
+			<h1>New Order</h1>
+			
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<form class="form">
+						<div class="row">
+							<div class="form-group col-md-2">
+								<label>Delivery Date: </label>
+								<h:inputText value="#{orderService.order.delivery_date}" styleClass="form-control" />
+							</div>
+							<div class="form-group col-md-2">
+								<label>Store: </label>
+								<h:inputText value="" styleClass="form-control" disabled="true" />
+							</div>
+						
+						</div>
+					</form>
+					
+					<hr/>
+					<form class="form-inline">
+						<div class="form-group">
+							<label>ProductNo: </label>
+							<h:inputText value="#{orderService.product_id}" styleClass="form-control" />
+						</div>
+						<div class="form-group">
+							<label>Amount: </label>
+							<h:inputText value="#{orderService.amount}" styleClass="form-control" />
+						</div>
+						
+						<h:commandButton value="Add Product" action="#{orderService.addProductToOrder}" styleClass="btn btn-primary"/>
+					</form>	
+				</div>
+				<h:dataTable value="#{orderService.details}" var="o">
+					<h:column>
+						#{o.Ordered}
+					</h:column>
+				</h:dataTable>
+			</div>
+			
+					
+		</div>
+	</body>
+			
+</html>
