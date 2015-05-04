@@ -53,7 +53,7 @@ public abstract class GenericEJB<T> {
 		 T result = null;
 		 
 		 try {
-			 Query query = entityManager.createNamedQuery(namedQuery);
+			 Query query = entityManager.createQuery(namedQuery.toString());
 		 
 			 // Method that will populate parameters if they are passed not null and empty
 			 if (parameters != null && !parameters.isEmpty()) {

@@ -38,11 +38,11 @@ public class UserEJB extends GenericEJB<User> {
 			String query = "select u from User u where u.email = :email and u.password = :password";
 			Map<String, Object> parameters = new HashMap<String, Object>();
 			parameters.put("email", email);
-			parameters.put("email", hashed_password);
+			parameters.put("password", hashed_password);
 			user = super.findOneResult(query, parameters);
 		}
 		catch(Exception e) {
-			// do nothing
+			e.printStackTrace();
 		}		
 		return user;
 	}

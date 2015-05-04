@@ -6,9 +6,10 @@
       	
 	<head>		
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"></link>
+		<title>Register</title>
 	</head>
 	
-	<body>
+	<body style="margin-top: 3em;">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4">
@@ -18,7 +19,11 @@
 						        First Name:
 						    </h:outputLabel>
 						    <h:inputText id="first_name" value="#{UserController.user.first_name}" 
-						                 required="true" styleClass="form-control" />
+						                 required="true" styleClass="form-control" autocomplete="true" >
+						                 <f:validateLength minimum="5" maximum="30" />
+						                 <f:validateRegex pattern="^[A-Za-zÆØÅæøå\s]{1,}[\-]{0,1}[A-Za-zÆØÅæøå\s]{0,}$"></f:validateRegex>
+			                 </h:inputText>
+						     <h:message for="first_name" style="color:red" />						                 						       
 					    </div>
 					    
 					    <div class="form-group">
@@ -26,7 +31,11 @@
 						        Last Name:
 						    </h:outputLabel>
 						    <h:inputText id="last_name" value="#{UserController.user.last_name}" 
-						                 required="true" styleClass="form-control" />
+						                 required="true" styleClass="form-control" >
+						                 <f:validateLength minimum="5" maximum="30" />
+						                 <f:validateRegex pattern="^[A-Za-zÆØÅæøå\s]{1,}[\-]{0,1}[A-Za-zÆØÅæøå\s]{0,}$"></f:validateRegex>
+			                 </h:inputText>
+						     <h:message for="last_name" style="color:red" />						                 						       
 					    </div>
 					    
 					    <div class="form-group">

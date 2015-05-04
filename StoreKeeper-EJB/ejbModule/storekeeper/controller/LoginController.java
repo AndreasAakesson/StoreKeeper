@@ -1,7 +1,6 @@
 package storekeeper.controller;
 
 import javax.ejb.EJB;
-import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -12,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import storekeeper.datamodel.User;
 import storekeeper.ejb.UserEJB;
 
-@Named(value = "loginController")
-@Stateless
+@Named("LoginController")
+@RequestScoped
 public class LoginController {
 
 	@EJB
@@ -21,27 +20,38 @@ public class LoginController {
 	
 	private String email;
 	private String password;
-	//private LoginCredentials credentials = new LoginCredentials();
+	private String message;
+	
 	public String getEmail() {
 		return email;
 	}
+	
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public String getMessaage() {
+		return message;
+	}	
 	
 	public String login() {
 		User user = userEJB.login(email, password);
 		if(user != null)
 			return "success";
-		
-		return "success";
-	    /*FacesContext context = FacesContext.getCurrentInstance();
+		else {
+			message = "Du kunne ikke logges inn nå, feil brukernavn eller passord!";
+			return "";
+		}						
+
+		/*FacesContext context = FacesContext.getCurrentInstance();
 	    HttpServletRequest request = (HttpServletRequest) 
 	        context.getExternalContext().getRequest();
 	    try {

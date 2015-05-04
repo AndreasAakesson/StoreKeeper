@@ -6,9 +6,10 @@
       	
 	<head>		
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"></link>
+		<title>Innlogging</title>
 	</head>
 	
-	<body>
+	<body style="margin-top: 3em;">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4">
@@ -17,19 +18,22 @@
 						    <h:outputLabel for="usernameInput">
 						        Username:
 						    </h:outputLabel>
-						    <h:inputText id="usernameInput" value="#{loginController.email}" 
+						    <h:inputText id="usernameInput" value="#{LoginController.email}" 
 						                 required="true" styleClass="form-control" />
 					    </div>
 					    <div class="form-group">
 						    <h:outputLabel for="passwordInput">
 						        Password:
 						    </h:outputLabel>
-						    <h:inputSecret id="passwordInput" value="#{loginController.password}" 
+						    <h:inputSecret id="passwordInput" value="#{LoginController.password}" 
 						                   required="true" styleClass="form-control" />
 					  	</div>
 					    <h:commandButton value="Login" 
-					                     action="#{loginController.login}" styleClass="btn btn-primary btn-lg btn-block" />
+					                     action="#{LoginController.login}" styleClass="btn btn-primary btn-lg btn-block" />
 					</h:form>
+				    <h3>
+				    	<h:outputText value="#{LoginController.messaage}" />                 
+					</h3>
 				</div>
 			</div>
 			
