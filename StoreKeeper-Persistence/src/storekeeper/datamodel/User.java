@@ -94,8 +94,7 @@ public class User implements java.io.Serializable {
 	protected void removeOrder(StoreOrder iOrder) {
 		orders.remove(iOrder);
 	}
-	
-	
+		
 	public void setStore(Set<Store> iStore){
 		stores = iStore;	
 	}

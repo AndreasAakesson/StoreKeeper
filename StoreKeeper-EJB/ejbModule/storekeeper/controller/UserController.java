@@ -24,8 +24,11 @@ public class UserController {
 
 	public String addNewUser(){
 		user = userEJB.add(user);
-		userList = getUserList();
-		return "userList.xhtml";		
+		//userList = getUserList();
+		if(user != null)
+			return "login.xhtml";
+		else
+			return "failed";
 	}
 	
 	public List<User> getUserList(){
@@ -38,7 +41,7 @@ public class UserController {
 			return "failed";
 		
 		user.setPassword(reg_password);
-		return "login.xhtml";
+		return addNewUser();
 	}
 	
 	public User getUserByName(String iFirst_name, String iLast_name){
