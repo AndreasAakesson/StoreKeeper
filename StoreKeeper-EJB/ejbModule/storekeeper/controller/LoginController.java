@@ -4,10 +4,12 @@ import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
+import storekeeper.auth.Authentication;
 import storekeeper.datamodel.User;
 import storekeeper.ejb.UserEJB;
 
@@ -17,6 +19,8 @@ public class LoginController {
 
 	@EJB
 	private UserEJB userEJB;
+	@Inject
+	private Authentication auth;
 	
 	private String email;
 	private String password;
@@ -44,10 +48,15 @@ public class LoginController {
 	
 	public String login() {
 		User user = userEJB.login(email, password);
-		if(user != null)
+		if(user != null) {
+			//FacesContext ctx = FacesContext.getCurrentInstance();
+	        //auth = (Authentication) ctx.getApplication().evaluateExpressionGet(ctx, "#{auth}", Authentication.class);
+			auth.setUser(user);
 			return "success";
+		}
+			
 		else {
-			message = "Du kunne ikke logges inn nå, feil brukernavn eller passord!";
+			message = "Du kunne ikke logges inn nï¿½, feil brukernavn eller passord!";
 			return "";
 		}						
 
