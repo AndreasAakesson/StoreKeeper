@@ -26,7 +26,7 @@
 								value="#{UserController.user.first_name}" required="true"
 								requiredMessage="Please enter first name"
 								styleClass="form-control" autocomplete="true">
-								<f:validateLength minimum="5" maximum="30" />
+								<f:validateLength minimum="3" maximum="35" />
 								<f:validateRegex
 									pattern="^[A-Za-zÆØÅæøå\s]{1,}[\-]{0,1}[A-Za-zÆØÅæøå\s]{0,}$"></f:validateRegex>
 							</h:inputText>
@@ -41,7 +41,7 @@
 								value="#{UserController.user.last_name}" required="true"
 								requiredMessage="Please enter last name"
 								styleClass="form-control">
-								<f:validateLength minimum="5" maximum="30" />
+								<f:validateLength minimum="3" maximum="35" />
 								<f:validateRegex
 									pattern="^[A-Za-zÆØÅæøå\s]{1,}[\-]{0,1}[A-Za-zÆØÅæøå\s]{0,}$"></f:validateRegex>
 							</h:inputText>
@@ -93,6 +93,10 @@
 					</h:form>
 					</div>
 				</div>
+			
+			    <h3>
+			    	<h:outputText value="#{UserController.messaage}" />                 
+				</h3>			
 			</div>
 			
 		</ui:define>

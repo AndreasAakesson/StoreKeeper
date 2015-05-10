@@ -17,16 +17,17 @@ public class UserController {
 	@EJB
 	private UserEJB userEJB;
 	private User user = new User();
+	private User exist;
 	private List<User> userList = new ArrayList<>();
 	
 	private String reg_password;
 	private String confirmation_password;
+	private String message;
 
-	public String addNewUser(){
-		user = userEJB.add(user);
-		//userList = getUserList();
-		if(user != null)
-			return "login.xhtml";
+	public String addNewUser(){		
+		exist = userEJB.add(user);
+		if(exist != null)
+			return "success";
 		else
 			return "failed";
 	}
@@ -40,6 +41,11 @@ public class UserController {
 		if(!reg_password.equals(confirmation_password))
 			return "failed";
 		
+		exist = userEJB.findByEmail(user.getEmail());
+		if(exist != null){
+			message = "This email is already registered!";
+			return "failed";					
+		}		
 		user.setPassword(reg_password);
 		return addNewUser();
 	}
@@ -75,5 +81,9 @@ public class UserController {
 	public void setConfirmation_password(String confirmation_password) {
 		this.confirmation_password = confirmation_password;
 	}
+
+	public String getMessaage() {
+		return message;
+	}		
 	
 }

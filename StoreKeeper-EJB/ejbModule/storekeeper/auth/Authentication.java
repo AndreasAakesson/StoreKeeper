@@ -2,9 +2,7 @@ package storekeeper.auth;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
-
 import storekeeper.datamodel.User;
-
 import java.io.Serializable;
 
 @SessionScoped

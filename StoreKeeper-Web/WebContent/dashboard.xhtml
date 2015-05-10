@@ -7,8 +7,14 @@
  <h:body>
 	<ui:composition template="/WEB-INF/template/Master.xhtml">
 		<ui:define name="title">StoreKeeper</ui:define>
-
+		
 		<ui:define name="content">	
+			<div>
+				<ui:fragment rendered="#{auth.guest}"> <!-- NOT LOGGED ON  -->
+					#{facesContext.externalContext.response.sendRedirect('login.xhtml')}
+				</ui:fragment>
+			</div>
+
 			<h1>Welcome #{auth.user.first_name}</h1>
 			<p class="lead">You're now logged in as <strong>#{auth.user.email}</strong></p>
 		</ui:define>

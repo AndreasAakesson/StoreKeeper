@@ -10,6 +10,15 @@
    <redirect/>
   </navigation-case>
  </navigation-rule>
+ <navigation-rule>
+  <display-name>register</display-name>
+  <from-view-id>/register.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>success</from-outcome>
+   <to-view-id>/login.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>
  <validator>
   <validator-id>passwordValidator</validator-id>
   <validator-class>storekeeper.validation.PasswordValidator</validator-class>

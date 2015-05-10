@@ -49,64 +49,25 @@ public class LoginController {
 	public String login() {
 		User user = userEJB.login(email, password);
 		if(user != null) {
-			//FacesContext ctx = FacesContext.getCurrentInstance();
-	        //auth = (Authentication) ctx.getApplication().evaluateExpressionGet(ctx, "#{auth}", Authentication.class);
 			auth.setUser(user);
 			return "success";
 		}
 			
 		else {
-			message = "Du kunne ikke logges inn n�, feil brukernavn eller passord!";
-			return "";
+			message = "Could not log in, wrong username or password!";
+			return "failed";
 		}						
 
-		/*FacesContext context = FacesContext.getCurrentInstance();
-	    HttpServletRequest request = (HttpServletRequest) 
-	        context.getExternalContext().getRequest();
-	    try {
-	      request.login(this.email, this.password);
-	    } catch (ServletException e) {
-	     
-	      context.addMessage(null, new FacesMessage("Login failed."));
-	      return "error";
-	    }
-	    return "order/index";*/
-	  }
+	}
 
-	  public void logout() {
-	    FacesContext context = FacesContext.getCurrentInstance();
-	    HttpServletRequest request = (HttpServletRequest) 
-	        context.getExternalContext().getRequest();
-	    try {
-	      request.logout();
-	    } catch (ServletException e) {
-	      context.addMessage(null, new FacesMessage("Logout failed."));
-	    }
-	  }
-	
-	/*public LoginCredentials getCredentials() {
-		return credentials;
-	}*/
-	
-	
-	/*public static class LoginCredentials {
-		private String email;
-		private String password;
-		
-		public void setEmail(String email) {
-			this.email = email;
+	public void logout() {
+		FacesContext context = FacesContext.getCurrentInstance();
+		HttpServletRequest request = (HttpServletRequest) 
+				context.getExternalContext().getRequest();
+		try {
+			request.logout();
+		} catch (ServletException e) {
+			context.addMessage(null, new FacesMessage("Logout failed."));
 		}
-		
-		public String getEmail() {
-			return email;
-		}
-		
-		public void setPassword(String password) {
-			this.password = password;
-		}
-		
-		public String getPassword() {
-			return password;
-		}
-	}*/
+	}
 }

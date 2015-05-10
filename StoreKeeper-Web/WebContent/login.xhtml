@@ -22,15 +22,19 @@
 							    <h:outputLabel for="usernameInput">
 							        Username:
 							    </h:outputLabel>
-							    <h:inputText id="usernameInput" value="#{LoginController.email}" 
+							    <h:inputText id="usernameInput" value="#{LoginController.email}"
+							    			 requiredMessage="Please enter email address" 
 							                 required="true" styleClass="form-control" />
+							    <h:message for="usernameInput" style="color:red" />             
 						    </div>
 						    <div class="form-group">
 							    <h:outputLabel for="passwordInput">
 							        Password:
 							    </h:outputLabel>
 							    <h:inputSecret id="passwordInput" value="#{LoginController.password}" 
+							    			   requiredMessage="Please enter password"
 							                   required="true" styleClass="form-control" />
+							    <h:message for="passwordInput" style="color:red" />               
 						  	</div>
 						    <h:commandButton value="Login" 
 						                     action="#{LoginController.login}" styleClass="btn btn-primary btn-lg btn-block" />
